@@ -1,6 +1,9 @@
 <template>
   <div class="todo-list">
-    <h1 class="display-4">Todo List</h1>
+    <div class="d-flex">
+      <img alt="Vue logo" src="../assets/logo.png" height='32' class='mt-1 mr-2'/>
+      <h1 class="display-4">Todo List</h1>
+    </div>
     <Form :newTodo="newTodo" :todos="todos" />
     <Todos :todos="todos" />
   </div>
