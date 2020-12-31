@@ -16,7 +16,7 @@
       :search="search"
       @search-changed="search = $event"
     />
-    <Todos :todos="todos" :search="search" />
+    <Todos :todos="todos" :search="search" @delete-todo="deleteTodo" />
   </div>
 </template>
 
@@ -26,6 +26,10 @@ import Form from "./Form.vue";
 import Todos from "./Todos.vue";
 export default {
   name: "TodoList",
+  components: {
+    Form,
+    Todos,
+  },
   props: {
     msg: String,
   },
@@ -40,9 +44,10 @@ export default {
       ],
     };
   },
-  components: {
-    Form,
-    Todos,
+  methods: {
+    deleteTodo(id) {
+      this.todos = this.todos.filter(todo => todo.id !== id)
+    },
   },
 };
 </script>
