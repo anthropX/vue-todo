@@ -3,7 +3,8 @@
     <b-form-group id="form-group" class="flex-grow-1 mb-0 mr-2">
       <b-form-input
         id="form-input-new-todo"
-        v-model="newTodo"
+        :value="newTodo"
+        @input.native="$emit('new-todo-changed', $event.target.value)"
         placeholder="What do you plan to do?"
         required
       ></b-form-input>
@@ -17,7 +18,8 @@
     <b-form-group id="input-group-search-todo" class="flex-grow-0 mb-0 ml-2">
       <b-form-input
         id="search-todo"
-        v-model="search"
+        :value="search"
+        @input.native="$emit('search-changed', $event.target.value)"
         placeholder="Search"
         required
       />
@@ -30,8 +32,8 @@ export default {
   name: "Form",
   props: {
     newTodo: String,
-    todos: Array,
     search: String,
+    todos: Array,
   },
 };
 </script>

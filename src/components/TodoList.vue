@@ -11,8 +11,10 @@
     </div>
     <Form
       :newTodo="newTodo"
+      @new-todo-changed="newTodo = $event"
       :todos="todos"
       :search="search"
+      @search-changed="search = $event"
     />
     <Todos :todos="todos" :search="search" />
   </div>
