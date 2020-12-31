@@ -3,6 +3,7 @@
     <AddTodo
       :newTodo="newTodo"
       @new-todo-changed="$emit('new-todo-changed', $event)"
+      @add-todo-clicked="$emit('add-todo-clicked', $event)"
       :todos="todos"
     />
     <SearchTodo

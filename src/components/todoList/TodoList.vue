@@ -10,9 +10,10 @@
       <h1 class="display-4">Todo List</h1>
     </div>
     <Form
+      :todos="todos"
       :newTodo="newTodo"
       @new-todo-changed="newTodo = $event"
-      :todos="todos"
+      @add-todo-clicked="newTodo && addTodo()"
       :search="search"
       @search-changed="search = $event"
     />
@@ -45,6 +46,10 @@ export default {
     };
   },
   methods: {
+    addTodo() {
+      this.todos.push({ id: uuidv4(), title: this.newTodo, done: false });
+      this.newTodo = "";
+    },
     deleteTodo(id) {
       this.todos = this.todos.filter((todo) => todo.id !== id);
     },

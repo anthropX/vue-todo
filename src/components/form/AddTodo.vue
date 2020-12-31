@@ -11,7 +11,7 @@
     </b-form-group>
     <b-button
       class="text-nowrap"
-      @click="newTodo && addTodo(newTodo)"
+      @click="$emit('add-todo-clicked')"
       variant="success"
       >Add to list</b-button
     >
@@ -19,17 +19,11 @@
 </template>
 
 <script>
-import { v4 as uuidv4 } from "uuid";
 export default {
   name: "AddTodo",
   props: {
     newTodo: String,
     todos: Array,
-  },
-  methods: {
-    addTodo() {
-      this.todos.push({ id: uuidv4(), title: this.newTodo, done: false });
-    },
   },
 };
 </script>
