@@ -3,7 +3,7 @@
     <div class="d-flex">
       <img
         alt="Vue logo"
-        src="../assets/logo.png"
+        src="../../assets/logo.png"
         height="32"
         class="mt-1 mr-2"
       />
@@ -22,8 +22,8 @@
 
 <script>
 import { v4 as uuidv4 } from "uuid";
-import Form from "./Form.vue";
-import Todos from "./Todos.vue";
+import Form from "../form/Form";
+import Todos from "../todos/Todos";
 export default {
   name: "TodoList",
   components: {
@@ -46,7 +46,7 @@ export default {
   },
   methods: {
     deleteTodo(id) {
-      this.todos = this.todos.filter(todo => todo.id !== id)
+      this.todos = this.todos.filter((todo) => todo.id !== id);
     },
   },
 };

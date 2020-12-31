@@ -20,7 +20,7 @@ export default {
 </script>
 
 <style lang='scss' scoped>
-@import "../scss/custom.scss";
+@import "../../scss/custom.scss";
 .todo {
   &.todo--done {
     .todo__title {
