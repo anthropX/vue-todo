@@ -2,7 +2,7 @@
   <b-list-group class="todos mt-2">
     <b-list-group-item
       class="todo d-flex justify-content-between align-items-center"
-      v-for="todo in todos"
+      v-for="todo in filteredTodos"
       :key="todo.id"
       :class="todo.done && 'todo--done'"
     >
@@ -21,9 +21,15 @@
 
 <script>
 export default {
-  name: "Form",
+  name: "Todos",
   props: {
     todos: Array,
+    search: String,
+  },
+  computed: {
+    filteredTodos() {
+      return this.todos.filter((todo) => todo.title.includes(this.search));
+    },
   },
   methods: {
     deleteTodo: function (todos, id) {

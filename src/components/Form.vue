@@ -9,10 +9,19 @@
       ></b-form-input>
     </b-form-group>
     <b-button
+      class="text-nowrap"
       @click="newTodo && todos.push({ title: newTodo, done: false })"
       variant="success"
       >Add to list</b-button
     >
+    <b-form-group id="input-group-search-todo" class="flex-grow-0 mb-0 ml-2">
+      <b-form-input
+        id="search-todo"
+        v-model="search"
+        placeholder="Search"
+        required
+      />
+    </b-form-group>
   </b-form>
 </template>
 
@@ -22,6 +31,7 @@ export default {
   props: {
     newTodo: String,
     todos: Array,
+    search: String,
   },
 };
 </script>
